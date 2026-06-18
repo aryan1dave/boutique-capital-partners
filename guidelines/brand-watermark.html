@@ -1,0 +1,23 @@
+<!-- @dsCard group="Brand" viewport="700x190" name="Swirl watermark" subtitle="The logo mark used giant at ~15% opacity behind content" -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; font-family: var(--font-brand); }
+  .stage { position: relative; background: var(--bcp-cream); height: 190px; overflow: hidden; }
+  .mark { position: absolute; right: -70px; top: -40px; width: 320px; opacity: 0.15; }
+  .copy { position: relative; z-index: 1; padding: 30px 28px; max-width: 380px; }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <img class="mark" src="../assets/marks/swirl-teal.svg" alt="">
+    <div class="copy">
+      <div style="font-size: 22px; font-weight: 500; color: var(--bcp-coral); margin-bottom: 10px;">Focusing on best in class</div>
+      <div style="font-size: 14px; line-height: 1.7; color: var(--bcp-gray-600);">The teal swirl (<code style="font-size: 11px;">assets/marks/swirl-teal.svg</code>) sits oversized at 15% opacity behind cream sections. A coral variant exists too.</div>
+    </div>
+  </div>
+</body>
+</html>

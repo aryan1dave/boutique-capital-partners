@@ -1,0 +1,29 @@
+<!-- @dsCard group="Brand" viewport="700x170" name="Service icons" subtitle="8 brand line icons — white via invert filter, on navy or in coral squares" -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; font-family: var(--font-brand); background: var(--bcp-navy); }
+  .row { display: flex; gap: 12px; padding: 18px; align-items: center; }
+  .ic { width: 54px; height: 54px; display: flex; align-items: center; justify-content: center; }
+  .ic img { width: 34px; height: 34px; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.9; }
+  .sq { background: var(--bcp-coral); border-radius: 12px; }
+  .cap { color: rgba(255,255,255,0.5); font-size: 10px; padding: 0 18px 12px; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="ic sq"><img src="../assets/icons/service-distribution.svg" alt=""></div>
+    <div class="ic"><img src="../assets/icons/service-strategy.svg" alt=""></div>
+    <div class="ic"><img src="../assets/icons/service-vehicle.svg" alt=""></div>
+    <div class="ic"><img src="../assets/icons/service-research.svg" alt=""></div>
+    <div class="ic"><img src="../assets/icons/service-communication.svg" alt=""></div>
+    <div class="ic"><img src="../assets/icons/service-roadshow.svg" alt=""></div>
+    <div class="ic"><img src="../assets/icons/service-marketing.svg" alt=""></div>
+    <div class="ic"><img src="../assets/icons/service-reporting.svg" alt=""></div>
+  </div>
+  <div class="cap">assets/icons/service-*.svg · rendered white with filter: brightness(0) invert(1) · active icon sits in a 12px-radius coral square</div>
+</body>
+</html>

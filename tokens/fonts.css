@@ -1,0 +1,36 @@
+/* Boutique Capital Partners — webfonts
+   Montserrat is the brand workhorse (variable, 100–900).
+   Roboto / Roboto Slab are the Elementor theme defaults (rarely seen).
+   Georgia (system) is used as the serif accent for fund names and quotes. */
+
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../assets/fonts/montserrat-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Montserrat";
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../assets/fonts/montserrat-latin-italic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../assets/fonts/roboto-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../assets/fonts/robotoslab-latin.woff2") format("woff2");
+}

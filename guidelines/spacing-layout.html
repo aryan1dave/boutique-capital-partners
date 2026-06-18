@@ -1,0 +1,27 @@
+<!-- @dsCard group="Spacing" viewport="700x160" name="Layout & borders" subtitle="Containers, section padding, coral border devices" -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; font-family: var(--font-brand); }
+  .half { display: grid; grid-template-columns: 1fr 1fr; }
+  .pad { padding: 16px 20px; }
+  .item { font-size: 12px; margin-bottom: 8px; }
+</style>
+</head>
+<body>
+  <div class="half">
+    <div class="pad" style="background: #fff; color: var(--bcp-gray-600);">
+      <div class="item"><strong style="color: var(--bcp-navy);">Containers:</strong> 1400px custom · 1240px Elementor · 1100px team</div>
+      <div class="item"><strong style="color: var(--bcp-navy);">Sections:</strong> 80–100px vertical · 60px horizontal padding</div>
+      <div class="item"><strong style="color: var(--bcp-navy);">Grids:</strong> insights 3-col/40px gap · team 6-col/25px gap</div>
+    </div>
+    <div class="pad" style="background: var(--bcp-navy);">
+      <div style="border: 2px solid var(--bcp-coral); border-radius: 16px; padding: 10px 14px; color: #fff; font-size: 12px; font-weight: 600; margin-bottom: 10px;">2px coral border box (on navy)</div>
+      <div style="border-left: 3px solid var(--bcp-coral); background: rgba(222,93,93,0.15); padding: 8px 14px; color: #fff; font-size: 12px;">3px coral left border = active menu item</div>
+    </div>
+  </div>
+</body>
+</html>

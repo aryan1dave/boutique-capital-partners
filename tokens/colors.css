@@ -1,0 +1,64 @@
+/* Boutique Capital Partners — color tokens
+   Extracted from boutiquecapitalpartners.co.uk (Elementor kit + hand-written section CSS). */
+
+:root {
+  /* ── Base palette ───────────────────────────────────────────── */
+  /* Navy — the brand's primary dark. Logo wordmark, headings, dark sections. */
+  --bcp-navy: #00005C;
+  --bcp-navy-rgb: 0, 0, 92; /* @kind other */
+
+  /* Coral — the accent. CTAs, links, active states, bullets. */
+  --bcp-coral: #DE5D5D;
+  --bcp-coral-rgb: 222, 93, 93; /* @kind other */
+  --bcp-coral-hover-dark: #C54D4D;   /* solid coral buttons darken on hover */
+  --bcp-coral-hover-light: #F07070;  /* coral text links lighten on hover */
+  --bcp-coral-soft: #E88A8A;         /* gradient tail of the accent bar */
+
+  /* Cream — the light canvas family. */
+  --bcp-cream: #F7EFD9;        /* section background (Elementor global "primary") */
+  --bcp-cream-card: #F8F4ED;   /* light cards on photos / dark sections */
+  --bcp-cream-soft: #F7F7ED;   /* contact cards */
+  --bcp-cream-button: #E8E4DC; /* tertiary button fill on cream cards */
+
+  /* Teal — secondary brand color. Logo swirl, puffin/CSR section. */
+  --bcp-teal: #257A99;
+  --bcp-teal-section: #247B99;
+
+  /* Mid blue — rare; cookie banner / deep accents only. */
+  --bcp-blue-mid: #0F367A;
+
+  /* Neutrals */
+  --bcp-white: #FFFFFF;
+  --bcp-gray-700: #333333;  /* prose on white (modal body) */
+  --bcp-gray-600: #555555;  /* secondary text on cream/white */
+  --bcp-gray-500: #7A7A7A;  /* Elementor default text */
+  --bcp-sand-400: #8A857D;  /* muted meta text on cream cards */
+  --bcp-sand-300: #C9C4BC;  /* hairline dividers on cream cards */
+
+  /* ── Semantic aliases ───────────────────────────────────────── */
+  --text-heading: var(--bcp-navy);
+  --text-body: var(--bcp-gray-600);
+  --text-prose: var(--bcp-gray-700);
+  --text-muted: var(--bcp-sand-400);
+  --text-on-dark: var(--bcp-white);
+  --text-on-dark-secondary: rgba(255, 255, 255, 0.85);
+  --text-on-dark-tertiary: rgba(255, 255, 255, 0.5);
+  --text-accent: var(--bcp-coral);
+
+  --surface-page: var(--bcp-cream);
+  --surface-card: var(--bcp-white);
+  --surface-card-cream: var(--bcp-cream-card);
+  --surface-dark: var(--bcp-navy);
+  --surface-teal: var(--bcp-teal-section);
+
+  --border-on-dark: rgba(255, 255, 255, 0.15);
+  --border-card: rgba(0, 0, 92, 0.06);
+  --border-accent: var(--bcp-coral);
+
+  --interactive-primary: var(--bcp-coral);
+  --interactive-primary-hover: var(--bcp-coral-hover-dark);
+  --link-on-dark: var(--bcp-coral);
+  --link-on-dark-hover: var(--bcp-coral-hover-light);
+
+  --overlay-modal: rgba(0, 0, 92, 0.9);
+}

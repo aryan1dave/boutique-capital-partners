@@ -1,0 +1,31 @@
+<!-- @dsCard group="Spacing" viewport="700x180" name="Motion & hover" subtitle="Everything lifts — hover the specimens" -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; font-family: var(--font-brand); background: var(--bcp-cream); }
+  .row { display: flex; gap: 18px; padding: 24px; align-items: center; }
+  .btn { background: var(--bcp-coral); color: #fff; font-weight: 600; font-size: 14px; padding: 14px 28px; border-radius: 12px; cursor: pointer; transition: all 0.25s ease; letter-spacing: 0.3px; }
+  .btn:hover { background: var(--bcp-coral-hover-dark); transform: translateY(-2px); box-shadow: var(--shadow-coral-hover); }
+  .card { background: #fff; border-radius: 16px; padding: 20px 24px; box-shadow: var(--shadow-card); border: 1px solid var(--border-card); transition: all 0.35s cubic-bezier(0.4,0,0.2,1); cursor: pointer; font-size: 13px; font-weight: 600; color: var(--bcp-navy); }
+  .card:hover { transform: translateY(-8px); box-shadow: var(--shadow-card-hover); border-color: rgba(222,93,93,0.2); }
+  .cta { color: var(--bcp-coral); font-size: 15px; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; cursor: pointer; transition: gap 0.3s cubic-bezier(0.4,0,0.2,1); }
+  .cta:hover { gap: 12px; }
+  .cta svg { width: 16px; height: 16px; transition: transform 0.3s; }
+  .cta:hover svg { transform: translateX(4px); }
+  .note { font-size: 10px; color: var(--bcp-sand-400); padding: 0 24px 10px; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="btn">Button lifts −2px</div>
+    <div class="card">Card lifts −8px</div>
+    <div class="cta">Arrow slides
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+    </div>
+  </div>
+  <div class="note">0.25–0.35s · ease / cubic-bezier(0.4, 0, 0.2, 1) · entrances fadeInUp 8px · no bounces, no parallax</div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!-- @dsCard group="Colors" viewport="700x150" name="Neutrals" subtitle="Text grays and warm sand tones" -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; font-family: var(--font-brand); background: #fff; }
+  .grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; padding: 14px; }
+  .sw { height: 86px; border-radius: var(--radius-md); padding: 10px 12px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: flex-end; }
+  .name { font-size: 12px; font-weight: 600; }
+  .hex { font-size: 10px; opacity: 0.8; }
+</style>
+</head>
+<body>
+  <div class="grid">
+    <div class="sw" style="background: var(--bcp-gray-700); color: #fff;"><div class="name">gray-700</div><div class="hex">#333 prose</div></div>
+    <div class="sw" style="background: var(--bcp-gray-600); color: #fff;"><div class="name">gray-600</div><div class="hex">#555 body</div></div>
+    <div class="sw" style="background: var(--bcp-gray-500); color: #fff;"><div class="name">gray-500</div><div class="hex">#7A7A7A</div></div>
+    <div class="sw" style="background: var(--bcp-sand-400); color: #fff;"><div class="name">sand-400</div><div class="hex">#8A857D meta</div></div>
+    <div class="sw" style="background: var(--bcp-sand-300); color: #5a564f;"><div class="name">sand-300</div><div class="hex">#C9C4BC lines</div></div>
+    <div class="sw" style="background: var(--bcp-cream-button); color: var(--bcp-navy);"><div class="name">cream-button</div><div class="hex">#E8E4DC</div></div>
+  </div>
+</body>
+</html>

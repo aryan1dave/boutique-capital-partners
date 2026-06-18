@@ -1,0 +1,31 @@
+<!-- @dsCard group="Colors" viewport="700x170" name="Core palette" subtitle="Navy, coral, cream — the three-color brand" -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; font-family: var(--font-brand); background: #fff; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; padding: 14px; }
+  .sw { height: 104px; border-radius: var(--radius-md); padding: 12px 14px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: flex-end; }
+  .name { font-size: 13px; font-weight: 600; }
+  .hex { font-size: 11px; opacity: 0.75; margin-top: 2px; }
+</style>
+</head>
+<body>
+  <div class="grid">
+    <div class="sw" style="background: var(--bcp-navy); color: #fff;">
+      <div class="name">Navy · --bcp-navy</div>
+      <div class="hex">#00005C — headings, dark sections, logo</div>
+    </div>
+    <div class="sw" style="background: var(--bcp-coral); color: #fff;">
+      <div class="name">Coral · --bcp-coral</div>
+      <div class="hex">#DE5D5D — CTAs, links, accents only</div>
+    </div>
+    <div class="sw" style="background: var(--bcp-cream); color: var(--bcp-navy); border: 1px solid var(--border-card);">
+      <div class="name">Cream · --bcp-cream</div>
+      <div class="hex">#F7EFD9 — the page canvas</div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BCP — Site Architecture &amp; UX Strategy</title>
+<link rel="icon" href="../assets/logos/bcp-mark-180.png">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; background: var(--bcp-cream); font-family: var(--font-brand); color: var(--bcp-gray-600); }
+  .page { max-width: 1240px; margin: 0 auto; padding: 70px 48px 110px; }
+
+  /* Doc header */
+  .doc-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; margin-bottom: 18px; }
+  .doc-head img { width: 210px; }
+  .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--bcp-coral); margin-bottom: 14px; }
+  h1 { font-size: 46px; font-weight: 600; letter-spacing: -0.5px; line-height: 1.15; color: var(--bcp-navy); margin: 0 0 14px 0; }
+  .lead { font-size: 18px; line-height: 1.65; max-width: 760px; margin: 0 0 8px 0; }
+
+  h2 { font-size: 30px; font-weight: 600; letter-spacing: -0.4px; color: var(--bcp-navy); margin: 0 0 10px 0; }
+  h3 { font-size: 18px; font-weight: 600; color: var(--bcp-navy); margin: 0 0 8px 0; }
+  section { margin-top: 78px; }
+  .section-lead { font-size: 16px; line-height: 1.7; max-width: 820px; margin: 0 0 34px 0; }
+  p { text-wrap: pretty; }
+
+  /* Cards */
+  .card { background: #fff; border: 1px solid var(--border-card); border-radius: var(--radius-xl); box-shadow: var(--shadow-card); }
+
+  /* 01 diagnosis */
+  .diag { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .diag .card { padding: 30px 32px; }
+  .diag ul { margin: 14px 0 0; padding: 0 0 0 2px; list-style: none; display: grid; gap: 12px; }
+  .diag li { font-size: 15px; line-height: 1.55; padding-left: 22px; position: relative; }
+  .diag li::before { content: ""; position: absolute; left: 0; top: 8px; width: 6px; height: 6px; border-radius: 50%; background: var(--bcp-coral); }
+  .pill-bad, .pill-good { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 5px 12px; border-radius: 20px; }
+  .pill-bad { background: rgba(222,93,93,0.12); color: var(--bcp-coral-hover-dark); }
+  .pill-good { background: rgba(37,122,153,0.12); color: var(--bcp-teal); }
+
+  /* 02 competitive table */
+  .comp { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .comp .card { padding: 26px 28px; }
+  .comp .who { font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--bcp-teal); margin-bottom: 10px; }
+  .comp p { font-size: 14.5px; line-height: 1.6; margin: 0 0 12px 0; }
+  .comp .takeaway { font-size: 13.5px; font-weight: 600; color: var(--bcp-navy); border-top: 1px solid var(--bcp-sand-300); padding-top: 12px; margin: 0; }
+
+  /* 03 audiences */
+  .aud { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .aud .card { padding: 0; overflow: hidden; }
+  .aud .head { padding: 22px 30px; color: #fff; display: flex; align-items: center; justify-content: space-between; }
+  .aud .head h3 { color: #fff; margin: 0; font-size: 20px; }
+  .aud .badge { font-size: 11px; font-weight: 700; letter-spacing: 1px; background: rgba(255,255,255,0.18); padding: 5px 12px; border-radius: 20px; }
+  .aud .body { padding: 24px 30px 28px; }
+  .aud .q { font-size: 15px; font-style: italic; color: var(--bcp-navy); margin: 0 0 16px; line-height: 1.5; }
+  .journey { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+  .step { font-size: 12.5px; font-weight: 600; color: var(--bcp-navy); background: var(--bcp-cream); border: 1px solid var(--bcp-sand-300); border-radius: 8px; padding: 8px 12px; }
+  .arr { color: var(--bcp-sand-400); font-size: 14px; }
+
+  /* 04 sitemap */
+  .map-wrap { background: var(--bcp-navy); border-radius: var(--radius-2xl); padding: 46px 38px 40px; overflow-x: auto; }
+  .map { min-width: 1080px; }
+  .node { box-sizing: border-box; border-radius: 10px; padding: 13px 15px 12px; background: #fff; position: relative; }
+  .node .t { font-size: 14.5px; font-weight: 700; color: var(--bcp-navy); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .node .d { font-size: 11.5px; line-height: 1.45; color: var(--bcp-gray-600); margin-top: 5px; }
+  .node.is-new::after { content: "NEW"; position: absolute; top: -9px; right: 10px; font-size: 9px; font-weight: 700; letter-spacing: 1px; background: var(--bcp-coral); color: #fff; padding: 3px 8px; border-radius: 20px; }
+  .node.home { background: var(--bcp-coral); width: 270px; margin: 0 auto; text-align: center; }
+  .node.home .t { color: #fff; justify-content: center; font-size: 16px; }
+  .node.home .d { color: rgba(255,255,255,0.92); }
+  .tag { font-size: 9px; font-weight: 700; letter-spacing: 0.6px; padding: 2px 7px; border-radius: 12px; }
+  .tag.fm { background: rgba(222,93,93,0.15); color: var(--bcp-coral-hover-dark); }
+  .tag.fb { background: rgba(37,122,153,0.15); color: var(--bcp-teal); }
+  .tag.all { background: rgba(0,0,92,0.08); color: var(--bcp-navy); }
+
+  .trunk { width: 3px; height: 26px; background: rgba(255,255,255,0.35); margin: 0 auto; }
+  .rail { height: 3px; background: rgba(255,255,255,0.35); margin: 0 calc(10% + 0px); }
+  .branches { display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; }
+  .branch { display: flex; flex-direction: column; gap: 14px; }
+  .branch > .drop { width: 3px; height: 22px; background: rgba(255,255,255,0.35); margin: 0 auto; }
+  .branch .kids { display: flex; flex-direction: column; gap: 10px; padding-left: 16px; border-left: 2px dashed rgba(255,255,255,0.3); margin-left: 14px; }
+  .kids .node { background: var(--bcp-cream-card); }
+  .legend { display: flex; gap: 22px; align-items: center; margin-top: 28px; flex-wrap: wrap; }
+  .legend span { font-size: 12px; color: rgba(255,255,255,0.85); display: inline-flex; align-items: center; gap: 8px; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+
+  /* 05 homepage blueprint */
+  .blue { display: grid; grid-template-columns: 360px 1fr; gap: 34px; align-items: start; }
+  .wire { background: #fff; border: 1px solid var(--border-card); border-radius: var(--radius-lg); box-shadow: var(--shadow-card); overflow: hidden; }
+  .wire .blk { padding: 14px 18px; border-bottom: 1px dashed var(--bcp-sand-300); }
+  .wire .blk:last-child { border-bottom: none; }
+  .wire .n { font-size: 10px; font-weight: 700; color: var(--bcp-coral); letter-spacing: 1px; }
+  .wire .tt { font-size: 14px; font-weight: 700; color: var(--bcp-navy); margin-top: 2px; }
+  .wire .dd { font-size: 12px; line-height: 1.5; color: var(--bcp-gray-600); margin-top: 3px; }
+  .blue-notes { display: grid; gap: 16px; }
+  .blue-notes .card { padding: 20px 24px; }
+  .blue-notes h3 { font-size: 15.5px; }
+  .blue-notes p { font-size: 14px; line-height: 1.6; margin: 0; }
+
+  /* 06 win table */
+  table { width: 100%; border-collapse: collapse; background: #fff; border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-card); }
+  th, td { text-align: left; padding: 16px 20px; font-size: 14px; line-height: 1.55; vertical-align: top; }
+  th { background: var(--bcp-navy); color: #fff; font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+  tr + tr td { border-top: 1px solid rgba(0,0,92,0.07); }
+  td:first-child { font-weight: 600; color: var(--bcp-navy); width: 220px; }
+
+  .footer-note { margin-top: 70px; font-size: 13px; color: var(--bcp-sand-400); border-top: 1px solid var(--bcp-sand-300); padding-top: 22px; line-height: 1.6; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="doc-head">
+    <div>
+      <div class="eyebrow">UX Strategy · June 2026</div>
+      <h1>From landing page to website</h1>
+    </div>
+    <img src="../assets/logos/bcp-logo.webp" alt="Boutique Capital Partners">
+  </div>
+  <p class="lead">Today the whole of boutiquecapitalpartners.co.uk is one long scroll. This document maps a proper multi-page architecture: who the site serves, how the best firms in the industry structure theirs, the proposed sitemap, and what the new slimmer homepage does instead.</p>
+
+  <!-- 01 -->
+  <section data-screen-label="Diagnosis">
+    <div class="eyebrow">01 · Diagnosis</div>
+    <h2>Why the one-pager is holding BCP back</h2>
+    <div class="diag">
+      <div class="card">
+        <span class="pill-bad">Today</span>
+        <ul>
+          <li><strong>Two very different audiences share one scroll.</strong> A fund manager looking to outsource distribution and a wealth-manager fund buyer hunting for the River Road OEIC wade through the same ~10 sections.</li>
+          <li><strong>Nothing is addressable.</strong> Services, team bios and the fund live at #anchors — they can't be linked in an email, indexed by Google, or sent to a compliance officer.</li>
+          <li><strong>The deepest content is the most buried.</strong> The 8 services and the fund proposition — BCP's commercial core — sit behind clicks inside widgets at the bottom of a long page.</li>
+          <li><strong>One page = one story order.</strong> Everyone gets hero → intro → River Road → services → team… regardless of what they came for.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="pill-good">Proposed</span>
+        <ul>
+          <li><strong>Self-selection in the hero.</strong> Two doors — "I manage funds" / "I buy funds" — each leading to a purpose-built journey (the pattern used by the strongest firms in the sector).</li>
+          <li><strong>Every key asset gets a URL.</strong> Each service, the fund, every insight, every bio — shareable, indexable, citable.</li>
+          <li><strong>The homepage becomes a router.</strong> A confident first impression plus clear paths — not the whole firm in one scroll.</li>
+          <li><strong>Compliance by design.</strong> The professional-investors disclaimer moves from footer small-print to a remembered, one-time attestation where regulations expect it (fund pages).</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 -->
+  <section data-screen-label="Competitive scan">
+    <div class="eyebrow">02 · Competitive scan</div>
+    <h2>What the best in the industry do</h2>
+    <p class="section-lead">Patterns from the strongest asset-management and boutique-manager sites (GQG Partners, Acadian, Dimensional, Two Sigma, Sculptor, Axonic, Brevan Howard) — and what BCP should borrow or beat.</p>
+    <div class="comp">
+      <div class="card">
+        <div class="who">GQG · Invesco</div>
+        <p>Audience self-selection up front — visitors choose investor type / region and the site adapts. Boutique scale, big-firm clarity.</p>
+        <p class="takeaway">→ BCP's version: a two-door hero (fund managers vs fund buyers). No popup gate; just honest wayfinding.</p>
+      </div>
+      <div class="card">
+        <div class="who">Acadian · Dimensional</div>
+        <p>The hero works hard: direct links to strategies and philosophy, animated credibility stats, and news/insights surfaced beside the headline rather than wasted white space.</p>
+        <p class="takeaway">→ Keep BCP's floating "Viewpoint" callout — it's already this pattern. Add proof numbers (jurisdictions, AUM raised, years of distribution experience).</p>
+      </div>
+      <div class="card">
+        <div class="who">Two Sigma · Axonic · Sculptor</div>
+        <p>Content is the moat: research made freely available, a real insights hub with categories, newsletter capture, and a firm story told properly (timeline, video, values).</p>
+        <p class="takeaway">→ BCP already writes genuine commentary. Give it a hub with filters, an article template, and email capture — that's how a 2-person brand outpunches its size.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 -->
+  <section data-screen-label="Audiences">
+    <div class="eyebrow">03 · Audiences &amp; journeys</div>
+    <h2>Two audiences, two journeys</h2>
+    <p class="section-lead">Everything on the site serves one of these two visitors (plus press/partners as a minor third). Each journey should reach its goal in two clicks from the homepage.</p>
+    <div class="aud">
+      <div class="card">
+        <div class="head" style="background: var(--bcp-coral);">
+          <h3>Boutique fund managers</h3><span class="badge">FM · supply side</span>
+        </div>
+        <div class="body">
+          <p class="q">"Can BCP get my strategy in front of UK &amp; European intermediaries — and are they credible?"</p>
+          <div class="journey">
+            <span class="step">Home</span><span class="arr">→</span>
+            <span class="step">For Fund Managers</span><span class="arr">→</span>
+            <span class="step">Service detail</span><span class="arr">→</span>
+            <span class="step" style="background: var(--bcp-coral); color: #fff; border-color: var(--bcp-coral);">Partner with us</span>
+          </div>
+          <p style="font-size: 13.5px; margin: 16px 0 0; line-height: 1.6;">Proof they need on the way: the 8-service offering, Rodger's track record &amp; the Advisory Board, the River Road case study, how a partnership works step-by-step.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="head" style="background: var(--bcp-teal);">
+          <h3>Fund buyers / intermediaries</h3><span class="badge">FB · demand side</span>
+        </div>
+        <div class="body">
+          <p class="q">"What strategies does BCP distribute, how do I access them, and where are the documents?"</p>
+          <div class="journey">
+            <span class="step">Home</span><span class="arr">→</span>
+            <span class="step">Fund Partners</span><span class="arr">→</span>
+            <span class="step">Fund page</span><span class="arr">→</span>
+            <span class="step" style="background: var(--bcp-teal); color: #fff; border-color: var(--bcp-teal);">Document centre / Enquire</span>
+          </div>
+          <p style="font-size: 13.5px; margin: 16px 0 0; line-height: 1.6;">Proof they need: manager pedigree, vehicle &amp; platform availability, fee waivers, KIIDs/factsheets, and ongoing commentary that shows conviction.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 -->
+  <section data-screen-label="Sitemap">
+    <div class="eyebrow">04 · Proposed sitemap</div>
+    <h2>The architecture</h2>
+    <p class="section-lead">Five top-level destinations — deliberately few (the best boutique sites run 4–6 menu items). Existing homepage sections are redistributed, not discarded; badges show which audience each node primarily serves.</p>
+    <div class="map-wrap">
+      <div class="map">
+        <div class="node home">
+          <div class="t">Home</div>
+          <div class="d">Slim router page · two-door hero · proof &amp; latest insight</div>
+        </div>
+        <div class="trunk"></div>
+        <div class="rail"></div>
+        <div class="branches">
+          <div class="branch">
+            <div class="drop"></div>
+            <div class="node is-new">
+              <div class="t">For Fund Managers <span class="tag fm">FM</span></div>
+              <div class="d">The pitch: outsourced distribution. Services overview, how a partnership works, credibility strip.</div>
+            </div>
+            <div class="kids">
+              <div class="node"><div class="t">Service pages ×8 <span class="tag fm">FM</span></div><div class="d">Today's services widget, one URL each — distribution, strategy, vehicle, research…</div></div>
+              <div class="node is-new"><div class="t">How we partner <span class="tag fm">FM</span></div><div class="d">Step-by-step process + River Road as case study</div></div>
+            </div>
+          </div>
+          <div class="branch">
+            <div class="drop"></div>
+            <div class="node">
+              <div class="t">Fund Partners <span class="tag fb">FB</span></div>
+              <div class="d">Not a catalog — the selection-standard story, then the chosen few (today: River Road).</div>
+            </div>
+            <div class="kids">
+              <div class="node"><div class="t">River Road AM <span class="tag fb">FB</span></div><div class="d">Manager story, philosophy, team</div></div>
+              <div class="node"><div class="t">US Large Cap Value Select <span class="tag fb">FB</span></div><div class="d">Fund page: vehicle, platforms, fee waivers, performance</div></div>
+              <div class="node"><div class="t">Document centre <span class="tag fb">FB</span></div><div class="d">KIIDs, factsheets, prospectus — behind professional-investor attestation</div></div>
+            </div>
+          </div>
+          <div class="branch">
+            <div class="drop"></div>
+            <div class="node">
+              <div class="t">Insights <span class="tag all">ALL</span></div>
+              <div class="d">Hub with category filters: Market Commentary, Partnership News, Fund Updates.</div>
+            </div>
+            <div class="kids">
+              <div class="node is-new"><div class="t">Article template <span class="tag all">ALL</span></div><div class="d">Readable single-article layout, author block, related reads</div></div>
+              <div class="node is-new"><div class="t">Newsletter capture <span class="tag all">ALL</span></div><div class="d">Email signup — the Two Sigma play</div></div>
+            </div>
+          </div>
+          <div class="branch">
+            <div class="drop"></div>
+            <div class="node">
+              <div class="t">About <span class="tag all">ALL</span></div>
+              <div class="d">"Who we are": founder story, Advisory Board, values, marketing partners.</div>
+            </div>
+            <div class="kids">
+              <div class="node"><div class="t">Team &amp; bios <span class="tag all">ALL</span></div><div class="d">Today's modals become linkable bio sections</div></div>
+              <div class="node"><div class="t">Responsibility <span class="tag all">ALL</span></div><div class="d">Puffin / Scottish Seabird Centre partnership — a differentiator, give it room</div></div>
+            </div>
+          </div>
+          <div class="branch">
+            <div class="drop"></div>
+            <div class="node">
+              <div class="t">Contact <span class="tag all">ALL</span></div>
+              <div class="d">Phone, email + short routed form ("I'm a fund manager / fund buyer").</div>
+            </div>
+            <div class="kids">
+              <div class="node"><div class="t">Legal pages <span class="tag all">ALL</span></div><div class="d">Disclaimer · Privacy · Cookies (exist today)</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="legend">
+          <span><span class="dot" style="background: var(--bcp-coral);"></span>Fund-manager journey</span>
+          <span><span class="dot" style="background: #4da3c2;"></span>Fund-buyer journey</span>
+          <span><span class="dot" style="background: #fff;"></span>Existing content, re-homed</span>
+          <span><span class="dot" style="background: var(--bcp-cream-card); outline: 1px solid rgba(255,255,255,0.4);"></span>Child page</span>
+          <span>“NEW” = page that doesn't exist today</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 -->
+  <section data-screen-label="Fund prominence evaluation">
+    <div class="eyebrow">05 · Evaluation — how loud should the fund be?</div>
+    <h2>Selectivity is the brand. Don't merchandise it.</h2>
+    <p class="section-lead">BCP's whole positioning is the filter: hundreds of conversations, almost all of them "no". A funds-forward homepage — the right pattern for Invesco or Calamos with hundreds of products — sends the opposite signal when the roster is one. Three options, evaluated:</p>
+    <div class="comp">
+      <div class="card">
+        <div class="who" style="color: var(--bcp-coral-hover-dark);">Option A · Fund-forward</div>
+        <p>The asset-manager default: "Funds" first in nav, fund cards in the hero, performance front and centre. Built for firms whose product breadth <em>is</em> the pitch.</p>
+        <p class="takeaway">→ Rejected. With one partner it reads thin — a supermarket with one shelf — and repositions BCP as River Road's marketing arm rather than the selector.</p>
+      </div>
+      <div class="card">
+        <div class="who" style="color: var(--bcp-coral-hover-dark);">Option B · Two-door router</div>
+        <p>Equal hero cards: "I manage funds" / "I buy funds". Honest about the two audiences and gets everyone where they're going fast.</p>
+        <p class="takeaway">→ Demoted. Efficient but characterless — the homepage becomes an airport. Both visitors get a corridor before anyone hears why BCP is different. Keep the split, but at the contact layer, not the hero.</p>
+      </div>
+      <div class="card" style="border: 2px solid var(--bcp-coral);">
+        <div class="who" style="color: var(--bcp-coral-hover-dark);">Option C · Selectivity-led ✓</div>
+        <p>The homepage tells the curation story; River Road appears once, generously — framed as <em>what passing the filter looks like</em>, not as inventory. "Hundreds considered. One chosen."</p>
+        <p class="takeaway">→ Recommended. Scarcity raises perceived quality for buyers and flatters prospective managers (a select list, not a stable). And it scales — at 3–4 partners the same module becomes a small curated set, never a grid.</p>
+      </div>
+    </div>
+    <div class="blue-notes" style="margin-top: 22px;">
+      <div class="card" style="padding: 20px 24px;"><h3>Guardrails so buyers don't pay for the romance</h3><p style="font-size: 14px; line-height: 1.6; margin: 0;">"Fund Partners" stays in the nav with a dropdown straight to the fund page and document centre (≤2 clicks from anywhere); every insight article cross-links the fund it discusses; and the buyer's contact path ("arrange a meeting") exists from the first screen — just quieter than the manager CTA, because the site's relationship-led sales motion means buyers usually arrive already knowing why.</p></div>
+    </div>
+  </section>
+
+  <!-- 06 -->
+  <section data-screen-label="Homepage blueprint">
+    <div class="eyebrow">06 · The new homepage</div>
+    <h2>From 10 sections to 5</h2>
+    <p class="section-lead">The homepage stops being the whole site and starts being its best salesperson: identity, segmentation, proof, freshness, action — in one viewport-and-a-half.</p>
+    <div class="blue">
+      <div class="wire">
+        <div class="blk"><div class="n">0 · NAV</div><div class="tt">Sticky header</div><div class="dd">Fund Managers · Fund Partners · Insights · About · Contact + "Partner with us" button</div></div>
+        <div class="blk"><div class="n">1 · HERO</div><div class="tt">Wave photo + strapline + one door</div><div class="dd">"Outsourced distribution for outstanding investment strategies." One coral CTA: Partner with us. Quiet buyer path beneath: "Access our fund partners →". Floating Viewpoint callout stays.</div></div>
+        <div class="blk"><div class="n">2 · PROOF</div><div class="tt">Selectivity strip</div><div class="dd">Stats that tell the filter story: strategies reviewed → partnerships signed · jurisdictions covered · years' distribution experience · advisory board depth</div></div>
+        <div class="blk"><div class="n">3 · FEATURE</div><div class="tt">Proof of selectivity</div><div class="dd">"Hundreds considered. One chosen." River Road presented generously → fund page. Scales to a curated few as the roster grows — never a grid.</div></div>
+        <div class="blk"><div class="n">4 · INSIGHTS</div><div class="tt">Latest 3 insights</div><div class="dd">InsightCards + "View all" → hub. Newsletter capture inline.</div></div>
+        <div class="blk"><div class="n">5 · CLOSE</div><div class="tt">Best-in-class CTA + footer</div><div class="dd">"Best-in-class fund manager? Let's have a conversation." → Contact. Compliance footer unchanged.</div></div>
+      </div>
+      <div class="blue-notes">
+        <div class="card"><h3>What moves off the homepage</h3><p>The 8-service explorer → <strong>For Fund Managers</strong>. Team grid + bios → <strong>About</strong>. Values strip → <strong>About</strong>. Puffin/CSR → <strong>About / Responsibility</strong>. River Road deep-dive → <strong>Fund Partners</strong>. Nothing is deleted — everything gets a better home and a URL.</p></div>
+        <div class="card"><h3>What's genuinely new</h3><p>The selectivity narrative and strip, the "How we partner" process page, the article template, newsletter capture, intent-split contact, and a remembered professional-investor attestation on fund documents.</p></div>
+        <div class="card"><h3>What we deliberately keep</h3><p>The brand system as-is (navy/coral/cream, Montserrat, lifts and coral accents), the floating Viewpoint callout, the question-led section titles, and the warm "We…" voice. This is an IA change, not a rebrand.</p></div>
+        <div class="card"><h3>Where we beat the field</h3><p>Most boutique-distribution sites pick one audience and bore the other. BCP can be the rare site that genuinely serves both sides of its market — and the puffin partnership gives it a human warmth none of the references have.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 -->
+  <section data-screen-label="Build plan">
+    <div class="eyebrow">07 · Build order</div>
+    <h2>Suggested build order</h2>
+    <table>
+      <tr><th>Phase</th><th>Pages</th><th>Why first</th></tr>
+      <tr><td>1 · Skeleton</td><td>New Home + For Fund Managers + Fund Partners hub</td><td>Establishes the selectivity-led model and proves the IA; reuses existing components heavily.</td></tr>
+      <tr><td>2 · Money pages</td><td>US Large Cap Value Select fund page + Document centre (with attestation)</td><td>The commercial core for fund buyers; unblocks platform/adviser conversations.</td></tr>
+      <tr><td>3 · Depth</td><td>About (team, values, responsibility) + Insights hub + article template</td><td>Trust and SEO compounders.</td></tr>
+      <tr><td>4 · Polish</td><td>Service detail pages ×8, How we partner, newsletter capture</td><td>Long-tail and nurture.</td></tr>
+    </table>
+  </section>
+
+  <p class="footer-note">All structure references real content from boutiquecapitalpartners.co.uk (saved source in <code>site_src/</code>). Industry patterns drawn from published reviews of GQG Partners, Invesco, Acadian, Dimensional, Two Sigma, Axonic, Sculptor and Brevan Howard sites. Stats in the proof strip are placeholders pending real figures from BCP.</p>
+</div>
+</body>
+</html>

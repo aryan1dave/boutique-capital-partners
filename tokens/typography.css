@@ -1,0 +1,45 @@
+/* Boutique Capital Partners — typography tokens */
+
+:root {
+  /* Families */
+  --font-brand: "Montserrat", Arial, sans-serif; /* everything user-facing */
+  --font-serif-accent: "Georgia", serif;          /* fund names, intro prose on navy */
+  --font-theme-default: "Roboto", sans-serif;     /* Elementor fallback, rarely visible */
+  --font-theme-slab: "Roboto Slab", serif;        /* Elementor secondary, rarely visible */
+
+  /* Weights (Montserrat usage on site: 400 / 500 / 600 / 700) */
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* Scale — desktop values from the live site */
+  --text-hero: clamp(36px, 5vw, 58px);  /* h1, weight 400 w/ italic + 700 mixed inline */
+  --text-display: 50px;                  /* big statement headings, weight 600, lh 54px */
+  --text-h2: 42px;                       /* section titles, weight 600, lh 1.2, ls -0.5px */
+  --text-h3: 32px;                       /* panel titles, weight 600, lh 1.2, ls -0.3px */
+  --text-h4: 26px;                       /* sub-block titles, weight 700 */
+  --text-card-title: 22px;               /* insight card titles, weight 600, lh 1.35 */
+  --text-lead: 20px;                     /* hero subtitle, weight 400, lh 1.6 */
+  --text-body-lg: 17px;                  /* panel subtitles, lh 1.6–1.7 */
+  --text-body: 16px;                     /* default prose, weight 400, lh 1.7–1.75 */
+  --text-body-sm: 15px;                  /* card excerpts / feature items, lh 1.5–1.65 */
+  --text-ui: 14px;                       /* menu items, small CTAs, weight 500 */
+  --text-caption: 13px;                  /* small button labels, weight 600 */
+  --text-eyebrow: 12px;                  /* uppercase labels, weight 500-700, ls 1–1.5px */
+  --text-micro: 11px;                    /* meta/series labels, weight 700, ls 1.2px */
+
+  /* Line heights */
+  --leading-tight: 1.15;   /* hero */
+  --leading-heading: 1.2;  /* section titles */
+  --leading-card: 1.35;    /* card titles */
+  --leading-body: 1.6;
+  --leading-relaxed: 1.75; /* long prose on dark */
+
+  /* Letterspacing */
+  --tracking-heading: -0.5px;
+  --tracking-subhead: -0.3px;
+  --tracking-eyebrow: 1px;
+  --tracking-eyebrow-wide: 1.5px;
+  --tracking-button: 0.3px;
+}
