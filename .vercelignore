@@ -1,0 +1,13 @@
+# Excluded from the Vercel deployment (kept in the repo, not served).
+# These are design-system authoring + research files the live site does not need.
+uploads/
+site_src/
+scraps/
+explorations/
+components/
+guidelines/
+ui_kits/
+_ds_manifest.json
+_adherence.oxlintrc.json
+SKILL.md
+readme.md

@@ -1,10 +1,10 @@
-<!-- @dsCard group="Website" viewport="1440x820" name="Homepage Redesign" subtitle="Selectivity-led homepage per the UX strategy (option C)" -->
+<!-- @dsCard group="Website" viewport="1440x820" name="Meet the Team" subtitle="Who we are — founder, advisory board and marketing partners (verbatim bios)" -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BCP — Homepage Redesign</title>
+<title>BCP — Meet the Team</title>
 <link rel="icon" href="assets/logos/bcp-mark-180.png">
 <link rel="stylesheet" href="styles.css">
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
@@ -14,51 +14,43 @@
 <style>
   html { scroll-behavior: smooth; }
   body { margin: 0; background: var(--bcp-cream); font-family: var(--font-brand); }
-  .r-svc-row:hover h3 { transform: translateX(6px) !important; }
-  .r-chip:hover { background: var(--bcp-navy); color: #fff !important; }
-  @keyframes rcFade { from { opacity: 0; } to { opacity: 1; } }
-  @keyframes heroScroll { 0% { transform: translateY(-14px); } 100% { transform: translateY(40px); } }
-  .hero-scroll-dot { animation: heroScroll 1.9s cubic-bezier(.4,0,.2,1) infinite; }
-  @media (prefers-reduced-motion: reduce) { .hero-scroll-dot { animation: none; } }
+  @keyframes tmFade { from { opacity: 0; } to { opacity: 1; } }
+  .team-track { scrollbar-width: none; -ms-overflow-style: none; }
+  .team-track::-webkit-scrollbar { display: none; }
+  .team-arrow:disabled { opacity: 0.3; cursor: default; }
 </style>
 </head>
 <body>
 <div id="root"></div>
-<script type="text/babel" src="redesign-sections.jsx"></script>
+<script type="text/babel" src="team-sections.jsx"></script>
 <script type="text/babel">
 const { NavBar, Footer } = window.BoutiqueCapitalPartnersDesignSystem_7ef874;
-const { RHero, RSelectivity, RFundFeature, RServices, RTeam, RInsights, RPuffin, RContact } = window.RedesignSections;
+const { TeamHero, FounderSpotlight, AdvisoryBoard, MarketingPartners, TeamCta } = window.TeamSections;
 
 const NAV_ITEMS = [
-  {
-    label: "Fund partners",
-    children: [
-      { label: "River Road Asset Management", href: "river-road.html" },
-      { label: "US Large Cap Value Select", href: "river-road.html" },
-      { label: "Fund information & document centre", href: "fund-documents.html" },
-    ],
-  },
-  { label: "For fund managers", href: "#services" },
+  { label: "Fund partners", children: [
+    { label: "River Road Asset Management", href: "river-road.html" },
+    { label: "US Large Cap Value Select", href: "river-road.html" },
+    { label: "Fund information & document centre", href: "fund-documents.html" },
+  ] },
+  { label: "For fund managers", href: "index.html#services" },
   { label: "About", children: [
     { label: "Meet the team", href: "meet-the-team.html" },
     { label: "Atlantic Puffin partnership", href: "puffin.html" },
   ] },
-  { label: "Insights", href: "insights.html" },
-  { label: "Contact", href: "#contact" },
+  { label: "Insights", href: "index.html#insights" },
+  { label: "Contact", href: "index.html#contact" },
 ];
 
 function Page() {
   return (
-    <div data-screen-label="Homepage Redesign">
+    <div data-screen-label="Meet the Team">
       <NavBar logoSrc="assets/logos/bcp-logo.webp" items={NAV_ITEMS} />
-      <RHero />
-      <RSelectivity />
-      <RFundFeature />
-      <RServices />
-      <RTeam />
-      <RInsights />
-      <RPuffin />
-      <RContact />
+      <TeamHero />
+      <FounderSpotlight />
+      <AdvisoryBoard />
+      <MarketingPartners />
+      <TeamCta />
       <Footer logoSrc="assets/logos/bcp-logo-cream.png" />
     </div>
   );

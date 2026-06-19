@@ -19,7 +19,13 @@
               "components/cards/**",
               "components/core/**",
               "components/navigation/**",
-              "explorations/**",
+              "documentcentre-sections.jsx",
+              "insights-sections.jsx",
+              "puffin-sections.jsx",
+              "redesign-sections.jsx",
+              "riverroad-sections.jsx",
+              "site-polish.js",
+              "team-sections.jsx",
               "ui_kits/website/**"
             ],
             "message": "Import design-system components from 'index.js', not component internals."

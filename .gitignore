@@ -1,5 +1,12 @@
-# Editor artifacts and bulk uploads — not source
+# Heavy source captures — not needed to run or deploy the site.
 uploads/
+site_src/
+scraps/
+
+# OS / editor noise
 .thumbnail
 .DS_Store
-*.state.json
+Thumbs.db
+*.log
+.vercel
+node_modules/

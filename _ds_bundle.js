@@ -1,4 +1,4 @@
-/* @ds-bundle: {"format":3,"namespace":"BoutiqueCapitalPartnersDesignSystem_7ef874","components":[{"name":"ContactCard","sourcePath":"components/cards/ContactCard.jsx"},{"name":"InsightCard","sourcePath":"components/cards/InsightCard.jsx"},{"name":"TeamCard","sourcePath":"components/cards/TeamCard.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"CalloutBox","sourcePath":"components/core/CalloutBox.jsx"},{"name":"FeatureList","sourcePath":"components/core/FeatureList.jsx"},{"name":"SectionHeading","sourcePath":"components/core/SectionHeading.jsx"},{"name":"Tag","sourcePath":"components/core/Tag.jsx"},{"name":"Footer","sourcePath":"components/navigation/Footer.jsx"},{"name":"NavBar","sourcePath":"components/navigation/NavBar.jsx"},{"name":"HomeHero","sourcePath":"ui_kits/website/HomeHero.jsx"},{"name":"HomeIntro","sourcePath":"ui_kits/website/HomeHero.jsx"},{"name":"HomeInsights","sourcePath":"ui_kits/website/HomeInsights.jsx"},{"name":"HomeContact","sourcePath":"ui_kits/website/HomeInsights.jsx"},{"name":"HomePartnership","sourcePath":"ui_kits/website/HomePartnership.jsx"},{"name":"HomeValues","sourcePath":"ui_kits/website/HomePartnership.jsx"},{"name":"HomePuffin","sourcePath":"ui_kits/website/HomePartnership.jsx"},{"name":"HomeServices","sourcePath":"ui_kits/website/HomeServices.jsx"},{"name":"HomeTeam","sourcePath":"ui_kits/website/HomeTeam.jsx"}],"sourceHashes":{"components/cards/ContactCard.jsx":"213ca5a0e169","components/cards/InsightCard.jsx":"d1477cdd147f","components/cards/TeamCard.jsx":"68d966e1c6c0","components/core/Button.jsx":"115997038316","components/core/CalloutBox.jsx":"a5535401789e","components/core/FeatureList.jsx":"d693c08f208f","components/core/SectionHeading.jsx":"04df3cf4c755","components/core/Tag.jsx":"5eec19fcb7ed","components/navigation/Footer.jsx":"0d51d6bc693c","components/navigation/NavBar.jsx":"203d239d142a","explorations/documentcentre-sections.jsx":"95a31e885acf","explorations/insights-sections.jsx":"5c372c569db5","explorations/puffin-sections.jsx":"b36b5778979f","explorations/redesign-sections.jsx":"1f41ad6f2a43","explorations/riverroad-sections.jsx":"f6b2d7ed9c6e","explorations/site-polish.js":"1d88e151ee0e","explorations/team-sections.jsx":"cbc39871c98e","ui_kits/website/HomeHero.jsx":"bb1706dc2ad8","ui_kits/website/HomeInsights.jsx":"2ade4fda8459","ui_kits/website/HomePartnership.jsx":"9de8889ee62e","ui_kits/website/HomeServices.jsx":"dfbf74d76f57","ui_kits/website/HomeTeam.jsx":"d52fd2c57961"},"inlinedExternals":[],"unexposedExports":[]} */
+/* @ds-bundle: {"format":3,"namespace":"BoutiqueCapitalPartnersDesignSystem_7ef874","components":[{"name":"ContactCard","sourcePath":"components/cards/ContactCard.jsx"},{"name":"InsightCard","sourcePath":"components/cards/InsightCard.jsx"},{"name":"TeamCard","sourcePath":"components/cards/TeamCard.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"CalloutBox","sourcePath":"components/core/CalloutBox.jsx"},{"name":"FeatureList","sourcePath":"components/core/FeatureList.jsx"},{"name":"SectionHeading","sourcePath":"components/core/SectionHeading.jsx"},{"name":"Tag","sourcePath":"components/core/Tag.jsx"},{"name":"Footer","sourcePath":"components/navigation/Footer.jsx"},{"name":"NavBar","sourcePath":"components/navigation/NavBar.jsx"},{"name":"HomeHero","sourcePath":"ui_kits/website/HomeHero.jsx"},{"name":"HomeIntro","sourcePath":"ui_kits/website/HomeHero.jsx"},{"name":"HomeInsights","sourcePath":"ui_kits/website/HomeInsights.jsx"},{"name":"HomeContact","sourcePath":"ui_kits/website/HomeInsights.jsx"},{"name":"HomePartnership","sourcePath":"ui_kits/website/HomePartnership.jsx"},{"name":"HomeValues","sourcePath":"ui_kits/website/HomePartnership.jsx"},{"name":"HomePuffin","sourcePath":"ui_kits/website/HomePartnership.jsx"},{"name":"HomeServices","sourcePath":"ui_kits/website/HomeServices.jsx"},{"name":"HomeTeam","sourcePath":"ui_kits/website/HomeTeam.jsx"}],"sourceHashes":{"components/cards/ContactCard.jsx":"213ca5a0e169","components/cards/InsightCard.jsx":"d1477cdd147f","components/cards/TeamCard.jsx":"68d966e1c6c0","components/core/Button.jsx":"115997038316","components/core/CalloutBox.jsx":"a5535401789e","components/core/FeatureList.jsx":"d693c08f208f","components/core/SectionHeading.jsx":"04df3cf4c755","components/core/Tag.jsx":"5eec19fcb7ed","components/navigation/Footer.jsx":"0d51d6bc693c","components/navigation/NavBar.jsx":"203d239d142a","documentcentre-sections.jsx":"ae8263ddd17c","insights-sections.jsx":"996e584febb7","puffin-sections.jsx":"d9ff5a635fba","redesign-sections.jsx":"1eb1ed8b7af7","riverroad-sections.jsx":"e846a64fde37","site-polish.js":"a15886767136","team-sections.jsx":"c10a8b12912a","ui_kits/website/HomeHero.jsx":"bb1706dc2ad8","ui_kits/website/HomeInsights.jsx":"2ade4fda8459","ui_kits/website/HomePartnership.jsx":"9de8889ee62e","ui_kits/website/HomeServices.jsx":"dfbf74d76f57","ui_kits/website/HomeTeam.jsx":"d52fd2c57961"},"inlinedExternals":[],"unexposedExports":[]} */
 
 (() => {
 
@@ -889,7 +889,7 @@ function NavBar({
 Object.assign(__ds_scope, { NavBar });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/NavBar.jsx", error: String((e && e.message) || e) }); }
 
-// explorations/documentcentre-sections.jsx
+// documentcentre-sections.jsx
 try { (() => {
 // Fund Information & Document Centre — CG River Road US Large Cap Value Select.
 // FAITHFUL recreation of the live page (uploads .../index.html, updated June 2026):
@@ -900,7 +900,7 @@ try { (() => {
 // (remembered) precedes the documents, per the agreed UX plan.
 // Exposes window.DocCentreSections.
 
-const A = "../assets";
+const A = "assets";
 const DS = window.BoutiqueCapitalPartnersDesignSystem_7ef874;
 const ATTEST_KEY = "bcp_pro_attested";
 const DISCLOSURE_PDF = "https://boutiquecapitalpartners.co.uk/wp-content/uploads/2025/12/River-Road-Boutique-Capital-Partners-Endorsement-Disclosure.pdf";
@@ -1672,9 +1672,9 @@ window.DocCentreSections = {
   DocHero,
   DocCentre
 };
-})(); } catch (e) { __ds_ns.__errors.push({ path: "explorations/documentcentre-sections.jsx", error: String((e && e.message) || e) }); }
+})(); } catch (e) { __ds_ns.__errors.push({ path: "documentcentre-sections.jsx", error: String((e && e.message) || e) }); }
 
-// explorations/insights-sections.jsx
+// insights-sections.jsx
 try { (() => {
 // Insights hub — built from the live insights archive (uploads .../index.html).
 // COPY LOCK: article titles, dates, excerpts, categories and the page title/
@@ -1682,7 +1682,7 @@ try { (() => {
 // The archive is a plain table; this elevates it with working category filters
 // and a featured lead article, per the agreed UX plan. Exposes window.InsightsSections.
 
-const A = "../assets";
+const A = "assets";
 const DS = window.BoutiqueCapitalPartnersDesignSystem_7ef874;
 const ARTICLES = [{
   id: "russell-shuffle",
@@ -1788,7 +1788,7 @@ function InsightsHero() {
       fontWeight: 500
     }
   }, /*#__PURE__*/React.createElement("a", {
-    href: "Homepage Redesign.html",
+    href: "index.html",
     style: {
       color: "#666",
       textDecoration: "none"
@@ -2085,16 +2085,16 @@ window.InsightsSections = {
   InsightsHero,
   InsightsHub
 };
-})(); } catch (e) { __ds_ns.__errors.push({ path: "explorations/insights-sections.jsx", error: String((e && e.message) || e) }); }
+})(); } catch (e) { __ds_ns.__errors.push({ path: "insights-sections.jsx", error: String((e && e.message) || e) }); }
 
-// explorations/puffin-sections.jsx
+// puffin-sections.jsx
 try { (() => {
 // Atlantic Puffin partnership page — BCP × Scottish Seabird Centre.
 // COPY LOCK: the title, all six trait texts, the quote and its attribution, and
 // the press-release button label are reproduced VERBATIM from site_src/index.html.
 // Eyebrow/section labels are navigational only. Exposes window.PuffinSections.
 
-const A = "../assets";
+const A = "assets";
 const DS = window.BoutiqueCapitalPartnersDesignSystem_7ef874;
 const TRAITS = [{
   name: "Distinctiveness",
@@ -2603,15 +2603,15 @@ window.PuffinSections = {
   PuffinQuote,
   PuffinCta
 };
-})(); } catch (e) { __ds_ns.__errors.push({ path: "explorations/puffin-sections.jsx", error: String((e && e.message) || e) }); }
+})(); } catch (e) { __ds_ns.__errors.push({ path: "puffin-sections.jsx", error: String((e && e.message) || e) }); }
 
-// explorations/redesign-sections.jsx
+// redesign-sections.jsx
 try { (() => {
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 // BCP Homepage Redesign — section components (selectivity-led blueprint, option C)
 // Loaded via Babel; exposes window.RedesignSections
 
-const A = "../assets";
+const A = "assets";
 const DS = window.BoutiqueCapitalPartnersDesignSystem_7ef874;
 
 /* ——— 1 · HERO — one door, quiet buyer path ——— */
@@ -2709,7 +2709,7 @@ function RHero() {
       right: "5%"
     }
   }, /*#__PURE__*/React.createElement("a", {
-    href: "Insights Hub.html",
+    href: "insights.html",
     style: {
       textDecoration: "none",
       display: "block"
@@ -3318,10 +3318,10 @@ function RFundFeature() {
     }
   }, /*#__PURE__*/React.createElement(Button, {
     arrow: true,
-    href: "River Road Fund.html"
+    href: "river-road.html"
   }, "View the fund"), /*#__PURE__*/React.createElement(Button, {
     variant: "outline",
-    href: "Fund Information & Document Centre.html"
+    href: "fund-documents.html"
   }, "Document centre"))), /*#__PURE__*/React.createElement("div", {
     style: {
       position: "relative",
@@ -3708,7 +3708,7 @@ function RTeam() {
       maxWidth: "520px"
     }
   }, "Founder Rodger Kennedy led London wealth distribution at Ninety One. Behind him sits an advisory board of CIOs, fund selectors and product specialists who pressure-test every partnership before we commit."), /*#__PURE__*/React.createElement("a", {
-    href: "Meet the Team.html",
+    href: "meet-the-team.html",
     style: {
       fontSize: "15px",
       fontWeight: 600,
@@ -3784,7 +3784,7 @@ function RInsights() {
     title: "Latest insights"
   }), /*#__PURE__*/React.createElement(Button, {
     variant: "tertiary",
-    href: "Insights Hub.html"
+    href: "insights.html"
   }, "View all insights")), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "grid",
@@ -3845,7 +3845,7 @@ function RPuffin() {
       maxWidth: "520px"
     }
   }, "In association with the Scottish Seabird Centre \u2014 because distinctive, resilient and loyal is a standard worth supporting.")), /*#__PURE__*/React.createElement("a", {
-    href: "Atlantic Puffin Partnership.html",
+    href: "puffin.html",
     style: {
       fontSize: "15px",
       fontWeight: 600,
@@ -4288,9 +4288,9 @@ window.RedesignSections = {
   RPuffin,
   RContact
 };
-})(); } catch (e) { __ds_ns.__errors.push({ path: "explorations/redesign-sections.jsx", error: String((e && e.message) || e) }); }
+})(); } catch (e) { __ds_ns.__errors.push({ path: "redesign-sections.jsx", error: String((e && e.message) || e) }); }
 
-// explorations/riverroad-sections.jsx
+// riverroad-sections.jsx
 try { (() => {
 // River Road fund page — FAITHFUL recreation of the live dedicated page
 // (boutiquecapitalpartners.co.uk/river-road-asset-management/), polished into
@@ -4298,7 +4298,7 @@ try { (() => {
 // disclosure below is reproduced VERBATIM from the signed-off source. Layout is
 // polished; words are not changed. Exposes window.RiverRoadSections.
 
-const A = "../assets";
+const A = "assets";
 const DS = window.BoutiqueCapitalPartnersDesignSystem_7ef874;
 
 /* Reusable 16:9 YouTube embed, optional coral corner brackets */
@@ -4794,7 +4794,7 @@ function RRStrategy() {
     }
   }, "The team utilizes a balanced approach to diversification and follows a structured sell discipline, avoiding averaging down on losing positions once a target holding is established."), /*#__PURE__*/React.createElement(Button, {
     arrow: true,
-    href: "Fund Information & Document Centre.html"
+    href: "fund-documents.html"
   }, "Fund information and document centre")), /*#__PURE__*/React.createElement("div", {
     className: "rr-reveal"
   }, /*#__PURE__*/React.createElement(Video, {
@@ -5303,9 +5303,9 @@ window.RiverRoadSections = {
   RRWealthWise,
   RRDisclosures
 };
-})(); } catch (e) { __ds_ns.__errors.push({ path: "explorations/riverroad-sections.jsx", error: String((e && e.message) || e) }); }
+})(); } catch (e) { __ds_ns.__errors.push({ path: "riverroad-sections.jsx", error: String((e && e.message) || e) }); }
 
-// explorations/site-polish.js
+// site-polish.js
 try { (() => {
 /* BCP site polish — shared elevation layer across all pages.
    Plain JS (NOT babel). Include once per page, just before </body>:
@@ -5323,7 +5323,9 @@ try { (() => {
 
   /* ---- inject shared CSS ---- */
   var EASE = "cubic-bezier(.22,1,.36,1)";
-  var css = ["#sp-progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:9999;", "background:linear-gradient(90deg,#DE5D5D,#E88A8A);transition:width .12s linear;pointer-events:none}", "header{transition:box-shadow .3s ease,padding .3s ease}", "header.sp-scrolled{box-shadow:0 6px 24px rgba(0,0,92,.10)!important}", ".sp-reveal{opacity:0;transform:translateY(18px);filter:blur(3px);", "transition:opacity .8s " + EASE + ",transform .8s " + EASE + ",filter .8s " + EASE + ";will-change:opacity,transform,filter}", ".sp-reveal.sp-in{opacity:1;transform:none;filter:none}", ".sp-c{opacity:0;transform:translateY(16px);", "transition:opacity .66s " + EASE + ",transform .66s " + EASE + ";will-change:opacity,transform}", ".sp-c.sp-c-in{opacity:1;transform:none}", "#sp-fade{position:fixed;inset:0;background:var(--bcp-cream,#F7EFD9);opacity:0;pointer-events:none;z-index:99999;transition:opacity .3s ease}", "#sp-fade.sp-show{opacity:1}", "@keyframes bcpDropIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}"].join("");
+  var css = ["#sp-progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:9999;", "background:linear-gradient(90deg,#DE5D5D,#E88A8A);transition:width .12s linear;pointer-events:none}", "header{transition:box-shadow .3s ease,padding .3s ease}", "header.sp-scrolled{box-shadow:0 6px 24px rgba(0,0,92,.10)!important}", ".sp-reveal{opacity:0;transform:translateY(18px);filter:blur(3px);", "transition:opacity .8s " + EASE + ",transform .8s " + EASE + ",filter .8s " + EASE + ";will-change:opacity,transform,filter}", ".sp-reveal.sp-in{opacity:1;transform:none;filter:none}", ".sp-c{opacity:0;transform:translateY(16px);", "transition:opacity .66s " + EASE + ",transform .66s " + EASE + ";will-change:opacity,transform}", ".sp-c.sp-c-in{opacity:1;transform:none}", "#sp-fade{position:fixed;inset:0;background:var(--bcp-cream,#F7EFD9);opacity:0;pointer-events:none;z-index:99999;transition:opacity .3s ease}", "#sp-fade.sp-show{opacity:1}", "@keyframes bcpDropIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}", /* ===== Responsive layer — overrides desktop inline styles on small screens ===== */
+  "@media (max-width:820px){", "[style*='grid-template-columns']{grid-template-columns:1fr !important;}", "[style*='repeat(4']{grid-template-columns:repeat(2,1fr) !important;}", "[style*='repeat(6']{grid-template-columns:repeat(2,1fr) !important;}", "[style*='width:'][style*='px']{max-width:100% !important;}", "section{padding-top:60px !important;padding-bottom:60px !important;}", "header>div{flex-wrap:wrap !important;gap:10px !important;row-gap:6px !important;}", "header nav ul{flex-wrap:wrap !important;column-gap:14px !important;row-gap:2px !important;justify-content:flex-start !important;}", "header nav a{font-size:15px !important;padding-top:6px !important;padding-bottom:6px !important;}", "header img{max-width:170px !important;height:auto !important;}", /* hero: stack instead of overlapping absolute cards */
+  "[data-screen-label='Hero']{flex-direction:column !important;align-items:flex-start !important;justify-content:center !important;min-height:auto !important;padding-top:96px !important;padding-bottom:60px !important;}", "[data-screen-label='Hero'] [style*='bottom: 48px']{position:static !important;margin:34px 0 0 0 !important;left:auto !important;right:auto !important;bottom:auto !important;}", "[data-screen-label='Hero'] [style*='bottom: 48px']>a>div{width:100% !important;max-width:360px !important;}", "[data-screen-label='Hero'] [style*='bottom: 30px']{display:none !important;}", "}", "@media (max-width:600px){", "[style*='repeat(4']{grid-template-columns:1fr 1fr !important;}", "[style*='repeat(6']{grid-template-columns:1fr 1fr !important;}", "[style*='min-width:']{min-width:0 !important;}", "h1{letter-spacing:-0.5px !important;}", "}"].join("");
   var style = document.createElement("style");
   style.id = "sp-style";
   style.textContent = css;
@@ -5581,9 +5583,9 @@ try { (() => {
     for (var k = 0; k < cs.length; k++) countUp(cs[k]);
   }, 4000);
 })();
-})(); } catch (e) { __ds_ns.__errors.push({ path: "explorations/site-polish.js", error: String((e && e.message) || e) }); }
+})(); } catch (e) { __ds_ns.__errors.push({ path: "site-polish.js", error: String((e && e.message) || e) }); }
 
-// explorations/team-sections.jsx
+// team-sections.jsx
 try { (() => {
 // Meet the Team — dedicated page built from the original site's "Who we are"
 // section. COPY LOCK: every bio, name and the board intro are reproduced
@@ -5591,7 +5593,7 @@ try { (() => {
 // factual descriptors drawn from each person's own bio wording.
 // Exposes window.TeamSections.
 
-const A = "../assets";
+const A = "assets";
 const DS = window.BoutiqueCapitalPartnersDesignSystem_7ef874;
 const FOUNDER = {
   name: "Rodger Kennedy",
@@ -6533,7 +6535,7 @@ function TeamCta() {
   }, "Best-in-class fund manager? Let's have a conversation."), /*#__PURE__*/React.createElement(Button, {
     size: "lg",
     arrow: true,
-    href: "Homepage Redesign.html#contact"
+    href: "index.html#contact"
   }, "Partner with us")));
 }
 window.TeamSections = {
@@ -6543,7 +6545,7 @@ window.TeamSections = {
   MarketingPartners,
   TeamCta
 };
-})(); } catch (e) { __ds_ns.__errors.push({ path: "explorations/team-sections.jsx", error: String((e && e.message) || e) }); }
+})(); } catch (e) { __ds_ns.__errors.push({ path: "team-sections.jsx", error: String((e && e.message) || e) }); }
 
 // ui_kits/website/HomeHero.jsx
 try { (() => {
