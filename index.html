@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Boutique Capital Partners — Design System</title>
+<meta name="description" content="The Boutique Capital Partners design system: brand tokens, guidelines, components and explorations.">
+
+<!-- Consume the real design tokens -->
+<link rel="stylesheet" href="tokens/colors.css">
+<link rel="stylesheet" href="tokens/typography.css">
+<link rel="stylesheet" href="tokens/spacing.css">
+<link rel="icon" href="site_src/images/cropped-fav_BCP-32x32.png">
+
+<style>
+  @font-face {
+    font-family: "Montserrat";
+    src: url("assets/fonts/montserrat-latin.woff2") format("woff2");
+    font-weight: 100 900; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: "Montserrat";
+    src: url("assets/fonts/montserrat-latin-italic.woff2") format("woff2");
+    font-weight: 100 900; font-style: italic; font-display: swap;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: var(--font-brand);
+    color: var(--text-body);
+    background: var(--surface-page);
+    font-size: var(--text-body);
+    line-height: var(--leading-body);
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--text-accent); text-decoration: none; }
+
+  .wrap { max-width: var(--container-elementor); margin: 0 auto; padding: 0 var(--space-6); }
+
+  /* ── Hero ───────────────────────────────────────── */
+  .hero {
+    position: relative;
+    background: var(--surface-dark);
+    color: var(--text-on-dark);
+    padding: clamp(64px, 10vw, 120px) 0 clamp(56px, 8vw, 100px);
+    overflow: hidden;
+  }
+  .hero__swirl {
+    position: absolute; right: -160px; top: 50%; transform: translateY(-50%);
+    width: 640px; max-width: 70vw; opacity: 0.15; pointer-events: none;
+  }
+  .hero .wrap { position: relative; z-index: 1; }
+  .hero img.logo { height: 40px; margin-bottom: var(--space-8); }
+  .hero h1 {
+    font-family: var(--font-brand);
+    font-size: var(--text-hero); font-weight: var(--weight-regular);
+    line-height: var(--leading-tight); letter-spacing: var(--tracking-heading);
+    color: var(--text-on-dark); margin: 0 0 var(--space-5); max-width: 18ch;
+  }
+  .hero h1 em { font-style: italic; }
+  .hero h1 b { font-weight: var(--weight-bold); }
+  .hero p.lead {
+    font-size: var(--text-lead); line-height: var(--leading-body);
+    color: var(--text-on-dark-secondary); max-width: 60ch; margin: 0 0 var(--space-8);
+  }
+  .accent-bar { width: 56px; height: 5px; border-radius: 3px;
+    background: linear-gradient(90deg, var(--bcp-coral), var(--bcp-coral-soft)); }
+  .hero .accent-bar { margin-bottom: var(--space-7); }
+
+  .meta { display: flex; flex-wrap: wrap; gap: var(--space-6); margin-top: var(--space-8);
+    font-size: var(--text-body-sm); color: var(--text-on-dark-tertiary); }
+  .meta b { color: var(--text-on-dark-secondary); font-weight: var(--weight-semibold); }
+
+  /* ── Sections ───────────────────────────────────── */
+  section.block { padding: clamp(48px, 7vw, 88px) 0; }
+  .eyebrow {
+    font-size: var(--text-eyebrow); font-weight: var(--weight-bold);
+    letter-spacing: var(--tracking-eyebrow-wide); text-transform: uppercase;
+    color: var(--text-accent); margin: 0 0 var(--space-3);
+  }
+  .block h2 {
+    font-family: var(--font-brand); font-size: var(--text-h2); font-weight: var(--weight-semibold);
+    line-height: var(--leading-heading); letter-spacing: var(--tracking-heading);
+    color: var(--text-heading); margin: 0 0 var(--space-2);
+  }
+  .block > .wrap > p.sub { color: var(--text-body); max-width: 64ch; margin: 0 0 var(--space-8); }
+
+  .grid { display: grid; gap: var(--space-5);
+    grid-template-columns: repeat(auto-fill, minmax(248px, 1fr)); }
+
+  .card {
+    display: block; background: var(--surface-card);
+    border: 1px solid var(--border-card); border-radius: var(--radius-xl);
+    padding: var(--space-6); box-shadow: var(--shadow-card);
+    transition: transform var(--duration-base) var(--ease-brand),
+                box-shadow var(--duration-base) var(--ease-brand);
+  }
+  .card:hover { transform: translateY(var(--lift-card)); box-shadow: var(--shadow-card-hover); }
+  .card h3 {
+    font-size: var(--text-card-title); font-weight: var(--weight-semibold);
+    color: var(--text-heading); margin: 0 0 var(--space-2); letter-spacing: var(--tracking-subhead);
+  }
+  .card p { font-size: var(--text-body-sm); color: var(--text-body); margin: 0 0 var(--space-4); }
+  .card .links { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+  .pill {
+    font-size: var(--text-micro); font-weight: var(--weight-semibold);
+    letter-spacing: 0.2px; padding: 5px 12px; border-radius: var(--radius-pill);
+    background: var(--bcp-cream-button); color: var(--text-heading);
+    transition: background var(--duration-fast) var(--ease-brand), color var(--duration-fast) var(--ease-brand);
+  }
+  .pill:hover { background: var(--bcp-coral); color: #fff; }
+
+  .swatch-row { display: flex; gap: 6px; margin-bottom: var(--space-4); }
+  .swatch { width: 26px; height: 26px; border-radius: var(--radius-sm); border: 1px solid var(--border-card); }
+
+  /* On-cream alt section */
+  .block--alt { background: var(--bcp-cream-card); }
+
+  footer {
+    background: var(--surface-dark); color: var(--text-on-dark-tertiary);
+    padding: var(--space-12) 0; font-size: var(--text-body-sm);
+  }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: var(--space-4); justify-content: space-between; align-items: center; }
+  footer a { color: var(--text-on-dark-secondary); }
+  footer a:hover { color: var(--link-on-dark-hover); }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <img class="hero__swirl" src="assets/marks/swirl-teal.svg" alt="" aria-hidden="true">
+  <div class="wrap">
+    <img class="logo" src="assets/logos/bcp-logo-cream.png" alt="Boutique Capital Partners">
+    <div class="accent-bar"></div>
+    <h1>The <em>Boutique Capital Partners</em> <b>design system</b></h1>
+    <p class="lead">Brand foundations, guidelines, components and explorations for BCP —
+      <em>outsourced</em> distribution for <b>outstanding</b> investment strategies.</p>
+    <div class="meta">
+      <span><b>3</b> component sets</span>
+      <span><b>24</b> guideline pages</span>
+      <span><b>8</b> explorations</span>
+      <span><b>1</b> live UI kit</span>
+    </div>
+  </div>
+</header>
+
+<section class="block" id="guidelines">
+  <div class="wrap">
+    <p class="eyebrow">Foundations</p>
+    <h2>Guidelines</h2>
+    <p class="sub">The visual language — colour, type, spacing and brand — extracted from the live BCP site and codified as tokens.</p>
+    <div class="grid">
+      <a class="card" href="guidelines/colors-core.html">
+        <div class="swatch-row">
+          <span class="swatch" style="background:#00005C"></span>
+          <span class="swatch" style="background:#DE5D5D"></span>
+          <span class="swatch" style="background:#F7EFD9"></span>
+          <span class="swatch" style="background:#257A99"></span>
+        </div>
+        <h3>Colour</h3>
+        <p>Navy, coral, cream and teal — usage, neutrals and on-dark behaviour.</p>
+        <div class="links">
+          <span class="pill">Core</span><span class="pill">Secondary</span>
+          <span class="pill">Neutrals</span><span class="pill">On dark</span><span class="pill">Sections</span>
+        </div>
+      </a>
+      <a class="card" href="guidelines/type-headings.html">
+        <h3>Typography</h3>
+        <p>Montserrat-led scale with a Georgia serif accent for fund names.</p>
+        <div class="links">
+          <span class="pill">Headings</span><span class="pill">Body</span>
+          <span class="pill">Labels</span><span class="pill">Montserrat</span><span class="pill">Serif</span>
+        </div>
+      </a>
+      <a class="card" href="guidelines/spacing-layout.html">
+        <h3>Spacing &amp; layout</h3>
+        <p>Section rhythm, radii, shadows and motion tokens.</p>
+        <div class="links">
+          <span class="pill">Layout</span><span class="pill">Radii</span>
+          <span class="pill">Shadows</span><span class="pill">Motion</span>
+        </div>
+      </a>
+      <a class="card" href="guidelines/brand-logos.html">
+        <h3>Brand</h3>
+        <p>Logos, icons, imagery, the teal watermark swirl and partner marks.</p>
+        <div class="links">
+          <span class="pill">Logos</span><span class="pill">Icons</span>
+          <span class="pill">Imagery</span><span class="pill">Watermark</span><span class="pill">Partners</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="block block--alt" id="components">
+  <div class="wrap">
+    <p class="eyebrow">Building blocks</p>
+    <h2>Components</h2>
+    <p class="sub">Reusable UI patterns documented as component cards.</p>
+    <div class="grid">
+      <a class="card" href="components/core/core.card.html">
+        <h3>Core</h3>
+        <p>Buttons, accent bars, eyebrows and the base elements.</p>
+        <div class="links"><span class="pill">View card →</span></div>
+      </a>
+      <a class="card" href="components/cards/cards.card.html">
+        <h3>Cards</h3>
+        <p>Insight cards, callout panels and on-dark bordered boxes.</p>
+        <div class="links"><span class="pill">View card →</span></div>
+      </a>
+      <a class="card" href="components/navigation/navigation.card.html">
+        <h3>Navigation</h3>
+        <p>Header, menu and CTA patterns.</p>
+        <div class="links"><span class="pill">View card →</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="explorations">
+  <div class="wrap">
+    <p class="eyebrow">In progress</p>
+    <h2>Explorations</h2>
+    <p class="sub">Design concepts and site-architecture studies for upcoming BCP surfaces.</p>
+    <div class="grid">
+      <a class="card" href="explorations/Homepage%20Redesign.html"><h3>Homepage redesign</h3></a>
+      <a class="card" href="explorations/Insights%20Hub.html"><h3>Insights Hub</h3></a>
+      <a class="card" href="explorations/Meet%20the%20Team.html"><h3>Meet the Team</h3></a>
+      <a class="card" href="explorations/River%20Road%20Fund.html"><h3>River Road Fund</h3></a>
+      <a class="card" href="explorations/Fund%20Information%20&amp;%20Document%20Centre.html"><h3>Fund Information &amp; Document Centre</h3></a>
+      <a class="card" href="explorations/Atlantic%20Puffin%20Partnership.html"><h3>Atlantic Puffin Partnership</h3></a>
+      <a class="card" href="explorations/Site%20Architecture%20&amp;%20UX%20Flows.html"><h3>Site Architecture &amp; UX Flows</h3></a>
+      <a class="card" href="explorations/Site%20Architecture%20&amp;%20UX%20Strategy.html"><h3>Site Architecture &amp; UX Strategy</h3></a>
+    </div>
+  </div>
+</section>
+
+<section class="block block--alt" id="reference">
+  <div class="wrap">
+    <p class="eyebrow">Reference</p>
+    <h2>Live site &amp; UI kit</h2>
+    <p class="sub">The source material this system is built from.</p>
+    <div class="grid">
+      <a class="card" href="ui_kits/website/index.html">
+        <h3>Website UI kit</h3>
+        <p>Assembled homepage sections — hero, services, team, partnership, insights.</p>
+        <div class="links"><span class="pill">Open kit →</span></div>
+      </a>
+      <a class="card" href="site_src/index.html">
+        <h3>Captured homepage</h3>
+        <p>Full saved copy of boutiquecapitalpartners.co.uk used as the extraction source.</p>
+        <div class="links"><span class="pill">Open capture →</span></div>
+      </a>
+      <a class="card" href="readme.md">
+        <h3>System readme</h3>
+        <p>Voice, content fundamentals and visual foundations in full.</p>
+        <div class="links"><span class="pill">Read →</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Boutique Capital Partners — Design System</span>
+    <span><a href="https://boutiquecapitalpartners.co.uk/" target="_blank" rel="noopener">boutiquecapitalpartners.co.uk</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
